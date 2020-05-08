@@ -1,0 +1,29 @@
+{
+  "HEADER": {
+    "TITLE": "Testovací úkol pro BSC"
+  },
+  "USERDATA": {
+		"FIRSTNAME": "Jméno",
+		"SECONDNAME": "Příjmení",
+		"BIRTHDAY": "Datum narození",
+		"EMAIL": "Email",
+		"TELEPHONE": "Telefon",
+		"HEIGHT": "Výška (sm)",
+		"WEIGHT": "Váha (kg)"
+	},
+  "TABLE": {
+		"ADDROW": "Přidat řádek",
+		"EDITROW": "Opravit řádek",
+		"DELETEROW": "Vymazat řádek",
+		"CLOSE": "Zavřít",
+		"SAVE": "Uložit",
+		"ISREQUIRED": "je povinné",
+		"DELETEROWQ":"Vymazat řádek?",
+		"CANNOTUNDONE":"To nelze vrátit zpět",
+		"CANCEL":"Zrušit",
+		"INVALIDEMAIL":"Neplatná e-mailová adresa",
+		"MINIMUMVALUE":"Minimální hodnota je",
+		"MAXIMUMVALUE":"Maximální hodnota je"
+
+	}
+}

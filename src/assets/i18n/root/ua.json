@@ -1,0 +1,28 @@
+{
+  "HEADER": {
+    "TITLE": "Тестове завдання для BSC"
+  },
+  "USERDATA": {
+		"FIRSTNAME": "Им'я",
+    "SECONDNAME": "Прізвище",
+    "BIRTHDAY": "Дата народження",
+		"EMAIL": "Email",
+		"TELEPHONE": "Телефон",
+		"HEIGHT": "Зріст (см)",
+		"WEIGHT": "Вага (кг)"
+	},
+  "TABLE": {
+		"ADDROW": "Додати рядок",
+		"EDITROW": "Редагувати рядок",
+    "DELETEROW": "Видалити рядок",
+    "CLOSE": "Закрити",
+    "SAVE": "Зберегти",
+    "ISREQUIRED": "обов'язкове",
+		"DELETEROWQ":"Видалити рядок?",
+		"CANNOTUNDONE":"Це безповоротно",
+		"CANCEL":"Скасувати",
+		"INVALIDEMAIL":"Недійсна email адреса",
+		"MINIMUMVALUE":"Мінімальне значення",
+		"MAXIMUMVALUE":"Максимальне значення"
+	}
+}

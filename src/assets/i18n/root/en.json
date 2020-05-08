@@ -1,0 +1,28 @@
+{
+  "HEADER": {
+    "TITLE": "BSC test task"
+	},
+  "USERDATA": {
+		"FIRSTNAME": "First name",
+		"SECONDNAME": "Second name",
+		"BIRTHDAY": "Birthdate",
+		"EMAIL": "Email",
+		"TELEPHONE": "Telephone",
+		"HEIGHT": "Height (sm)",
+		"WEIGHT": "Weight (kg)"
+	},
+  "TABLE": {
+		"ADDROW": "Add row",
+		"EDITROW": "Edit row",
+		"DELETEROW": "Delete row",
+		"CLOSE": "Close",
+		"SAVE": "Save",
+		"ISREQUIRED": "is required",
+		"DELETEROWQ":"Delete row?",
+		"CANNOTUNDONE":"This cannot be undone",
+		"CANCEL":"Cancel",
+		"INVALIDEMAIL":"Invalid email address",
+		"MINIMUMVALUE":"Minimum value is",
+		"MAXIMUMVALUE":"Maximum value is"
+	}
+}

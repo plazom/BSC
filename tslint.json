@@ -1,148 +1,316 @@
 {
-  "extends": "tslint:recommended",
   "rules": {
-    "align": {
-      "options": [
-        "parameters",
-        "statements"
-      ]
-    },
-    "array-type": false,
-    "arrow-return-shorthand": true,
-    "curly": true,
     "deprecation": {
       "severity": "warning"
     },
-    "component-class-suffix": true,
+    "adjacent-overload-signatures": true,
+    "align": [
+      true,
+      "parameters",
+      "statements",
+      "members",
+      "elements"
+    ],
+    "angular-whitespace": [
+      true,
+      "check-pipe",
+      "check-semicolon"
+    ],
+    "array-bracket-spacing": [
+      true,
+      "never"
+    ],
+    "array-type": [
+      true,
+      "array-simple"
+    ],
+    "arrow-return-shorthand": true,
+    "ban-types": [
+      true,
+      [
+        "Object",
+        "Avoid using the `Object` type. Did you mean `object`?"
+      ],
+      [
+        "Function",
+        "Avoid using the `Function` type. Prefer a specific function type, like `() => void`."
+      ],
+      [
+        "Boolean",
+        "Avoid using the `Boolean` type. Did you mean `boolean`?"
+      ],
+      [
+        "Number",
+        "Avoid using the `Number` type. Did you mean `number`?"
+      ],
+      [
+        "String",
+        "Avoid using the `String` type. Did you mean `string`?"
+      ],
+      [
+        "Symbol",
+        "Avoid using the `Symbol` type. Did you mean `symbol`?"
+      ]
+    ],
+    "brace-style": [true, "1tbs", {"allowSingleLine": true}],
+    "callable-types": true,
+    "class-name": true,
+    "comment-format": [true, "check-space"],
+    "component-class-suffix": [true, "Component", "Page", "Modal", "App"],
+    "component-selector": [true, "element", "bsc", "kebab-case"],
+    "contextual-decorator": true,
     "contextual-lifecycle": true,
-    "directive-class-suffix": true,
-    "directive-selector": [
-      true,
-      "attribute",
-      "app",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "app",
-      "kebab-case"
-    ],
+    "curly": [true, "ignore-same-line"],
+    "directive-class-suffix": [true, "Directive"],
+    "directive-selector": [true, "attribute", "bsc", "camelCase"],
     "eofline": true,
+    "file-name-casing": [true, "kebab-case"],
+    "forin": true,
+    "function-constructor": true,
     "import-blacklist": [
       true,
       "rxjs/Rx"
     ],
+    "import-destructuring-spacing": true,
     "import-spacing": true,
-    "indent": {
-      "options": [
-        "spaces"
-      ]
-    },
-    "max-classes-per-file": false,
-    "max-line-length": [
+    "increment-decrement": [true, "allow-post"],
+    "indent": [true, "spaces"],
+    "interface-name": [true, "never-prefix"],
+    "interface-over-type-literal": true,
+    "label-position": true,
+    "max-classes-per-file": [
       true,
-      140
+      1
+    ],
+    "max-line-length": [
+      false
+    ],
+    "member-access": [
+      true,
+      "no-public"
     ],
     "member-ordering": [
+      false
+    ],
+    "new-parens": true,
+    "no-angle-bracket-type-assertion": true,
+    "no-any": true,
+    "no-arg": true,
+    "no-async-without-await": true,
+    "no-attribute-decorator": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-consecutive-blank-lines": true,
+    "no-constant-condition": true,
+    "no-construct": true,
+    "no-control-regex": true,
+    "no-debugger": true,
+    "no-default-export": true,
+    "no-duplicate-case": true,
+    "no-duplicate-super": true,
+    "no-empty": true,
+    "no-empty-character-class": true,
+    "no-empty-interface": true,
+    "no-eval": true,
+    "no-ex-assign": true,
+    "no-extra-boolean-cast": true,
+    "no-for-in": true,
+    "no-forward-ref": true,
+    "no-host-metadata-property": true,
+    "no-inferrable-types": [false],
+    "no-internal-module": true,
+    "no-input-rename": true,
+    "no-inputs-metadata-property": true,
+    "no-invalid-regexp": true,
+    "no-invalid-template-strings": true,
+    "no-invalid-this": true,
+    "no-mergeable-namespace": true,
+    "no-misused-new": true,
+    "no-multi-spaces": [
       true,
       {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
+        "exceptions": {
+          "PropertyAssignment": false
+        }
+      }
+    ],
+    "no-namespace": true,
+    "no-non-null-assertion": true,
+    "no-null-keyword": false,
+    "no-output-native": true,
+    "no-output-on-prefix": true,
+    "no-output-rename": true,
+    "no-outputs-metadata-property": true,
+    "no-pipe-impure": false,
+    "no-reference": true,
+    "no-reference-import": true,
+    "no-regex-spaces": true,
+    "no-require-imports": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": true,
+    "no-string-throw": true,
+    "no-switch-case-fall-through": false,
+    "no-tautology-expression": true,
+    "no-trailing-whitespace": true,
+    "no-unexpected-multiline": true,
+    "no-unnecessary-initializer": true,
+    "no-unsafe-finally": true,
+    "no-unused-css": true,
+    "no-unused-expression": true,
+    "no-use-before-declare": false,
+    "no-var-keyword": true,
+    "no-var-requires": true,
+    "object-curly-spacing": [
+      false
+    ],
+    "object-literal-key-quotes": [
+      true,
+      "consistent-as-needed"
+    ],
+    "object-literal-shorthand": true,
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-else",
+      "check-catch",
+      "check-finally",
+      "check-whitespace"
+    ],
+    "one-variable-per-declaration": [true, "ignore-for-loop"],
+    "only-arrow-functions": [true, "allow-declarations"],
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true,
+        "groups": [
+          {
+            "name": "local files",
+            "match": "^[.].*",
+            "order": 2
+          },
+          {
+            "name": "internal",
+            "match": "^@(emplaya|kendaya|complaya|videotoll|funk|ras).*",
+            "order": 1
+          },
+          {
+            "name": "third-party libraries",
+            "match": ".*",
+            "order": 0
+          }
         ]
       }
     ],
-    "no-console": [
+    "pipe-naming": [
       true,
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
+      "camelCase",
+      ""
     ],
-    "no-empty": false,
-    "no-inferrable-types": [
+    "pipe-prefix": [true, ""],
+    "prefer-const": false,
+    "prefer-for-of": true,
+    "prefer-method-signature": true,
+    "prefer-template": [
       true,
-      "ignore-params"
-    ],
-    "no-non-null-assertion": true,
-    "no-redundant-jsdoc": true,
-    "no-switch-case-fall-through": true,
-    "no-var-requires": false,
-    "object-literal-key-quotes": [
-      true,
-      "as-needed"
+      "allow-single-concat"
     ],
     "quotemark": [
       true,
-      "single"
+      "single",
+      "avoid-escape"
     ],
-    "semicolon": {
-      "options": [
-        "always"
-      ]
-    },
-    "space-before-function-paren": {
-      "options": {
+    "radix": true,
+    "rxjs-no-async-subscribe": true,
+    "rxjs-no-compat": true,
+    "rxjs-no-index": true,
+    "rxjs-no-internal": true,
+    "rxjs-no-nested-subscribe": true,
+    "rxjs-no-subject-unsubscribe": true,
+    "rxjs-no-unsafe-takeuntil": true,
+    "semicolon": [true, "always"],
+    "space-before-function-paren": [
+      true,
+      {
         "anonymous": "never",
         "asyncArrow": "always",
         "constructor": "never",
         "method": "never",
         "named": "never"
       }
-    },
-    "typedef-whitespace": {
-      "options": [
-        {
-          "call-signature": "nospace",
-          "index-signature": "nospace",
-          "parameter": "nospace",
-          "property-declaration": "nospace",
-          "variable-declaration": "nospace"
-        },
-        {
-          "call-signature": "onespace",
-          "index-signature": "onespace",
-          "parameter": "onespace",
-          "property-declaration": "onespace",
-          "variable-declaration": "onespace"
-        }
-      ]
-    },
-    "variable-name": {
-      "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-pascal-case"
-      ]
-    },
-    "whitespace": {
-      "options": [
-        "check-branch",
-        "check-decl",
-        "check-operator",
-        "check-separator",
-        "check-type",
-        "check-typecast"
-      ]
-    },
-    "no-conflicting-lifecycle": true,
-    "no-host-metadata-property": true,
-    "no-input-rename": true,
-    "no-inputs-metadata-property": true,
-    "no-output-native": true,
-    "no-output-on-prefix": true,
-    "no-output-rename": true,
-    "no-outputs-metadata-property": true,
+    ],
+    "space-in-parens": [true, "never"],
+    "static-this": true,
     "template-banana-in-box": true,
+    "template-i18n": [true, "check-text"],
     "template-no-negated-async": true,
+    "template-use-track-by-function": true,
+    "ter-arrow-spacing": true,
+    "ter-func-call-spacing": true,
+    "ter-indent": [
+      true,
+      2,
+      {
+        "SwitchCase": 1,
+        "MemberExpression": 1,
+        "FunctionDeclaration": {
+          "parameters": 1,
+          "body": 1
+        },
+        "FunctionExpression": {
+          "parameters": 1,
+          "body": 1
+        },
+        "CallExpression": {
+          "arguments": 1
+        }
+      }
+    ],
+    "ter-no-irregular-whitespace": true,
+    "ter-no-sparse-arrays": true,
+    "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+    "triple-equals": true,
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      },
+      {
+        "call-signature": "onespace",
+        "index-signature": "onespace",
+        "parameter": "onespace",
+        "property-declaration": "onespace",
+        "variable-declaration": "onespace"
+      }
+    ],
+    "unified-signatures": true,
+    "unnecessary-bind": true,
+    "use-component-view-encapsulation": true,
+    "use-isnan": true,
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
+    "use-pipe-decorator": true,
+    "use-pipe-transform-interface": true,
+    "variable-name": [true, "ban-keywords"],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-rest-spread",
+      "check-separator",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock"
+    ]
   },
-  "rulesDirectory": [
-    "codelyzer"
+  "extends": [
+    "tslint-eslint-rules",
+    "tslint-angular",
+    "rxjs-tslint-rules",
+    "tslint-sonarts"
   ]
 }

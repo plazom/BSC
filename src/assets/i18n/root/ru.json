@@ -1,0 +1,28 @@
+{
+  "HEADER": {
+    "TITLE": "Тестовое задание для BSC"
+  },
+  "USERDATA": {
+		"FIRSTNAME": "Имя",
+		"SECONDNAME": "Фамилия",
+		"BIRTHDAY": "Дата рождения",
+		"EMAIL": "Email",
+		"TELEPHONE": "Телефон",
+		"HEIGHT": "Рост (см)",
+		"WEIGHT": "Вес (кг)"
+	},
+  "TABLE": {
+		"ADDROW": "Добавить строку",
+		"EDITROW": "Изменить строку",
+		"DELETEROW": "Удалить строку",
+		"CLOSE": "Закрыть",
+		"SAVE": "Сохранить",
+		"ISREQUIRED": "обязательно",
+		"DELETEROWQ":"Удалить строку?",
+		"CANNOTUNDONE":"Это безвозвратно",
+		"CANCEL":"Отмена",
+		"INVALIDEMAIL":"Недействительный email адрес",
+		"MINIMUMVALUE":"Минимальное значение",
+		"MAXIMUMVALUE":"Максимальное значение"
+	}
+}
