@@ -1,1 +1,13 @@
-<bsc-lang-container></bsc-lang-container>
+<div fxFlex="1 1 0" fxLayout="column" fxLayoutGap="5px">
+  <bsc-lang-container></bsc-lang-container>
+
+  <div fxFlex="1 1 0" fxLayout="row" class="margin-bottom">
+    <kendo-tabstrip fxFlex (tabSelect)="onTabSelect($event)">
+      <kendo-tabstrip-tab *ngFor="let item of navItems" [title]="item.name | translate" [selected]="isActive(item)">
+        <ng-template kendoTabContent>
+          <router-outlet></router-outlet>
+        </ng-template>
+      </kendo-tabstrip-tab>
+    </kendo-tabstrip>
+  </div>
+</div>

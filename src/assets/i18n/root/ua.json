@@ -1,7 +1,12 @@
 {
   "HEADER": {
     "TITLE": "Тестове завдання для BSC"
-  },
+	},
+	"TUBS": {
+		"INTRODUCTION": "Привітання",
+		"NOTES": "Записи",
+		"USERS": "Користувачі"
+	},
   "USERDATA": {
 		"FIRSTNAME": "Им'я",
     "SECONDNAME": "Прізвище",

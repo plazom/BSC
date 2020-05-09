@@ -19,5 +19,16 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+  "files": [
+    "./src/main.ts",
+    "./src/polyfills.ts",
+    "./src/app/introduction/introduction.module.ts",
+    "./src/app/notes/notes.module.ts",
+    "./src/app/users/users.module.ts",
+  ],
+  "exclude": [
+    "types",
+    "**/*.spec.ts"
+  ]
 }

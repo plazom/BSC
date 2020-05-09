@@ -1,7 +1,12 @@
 {
   "HEADER": {
     "TITLE": "Testovací úkol pro BSC"
-  },
+	},
+	"TUBS": {
+		"INTRODUCTION": "Představování",
+		"NOTES": "Notes",
+		"USERS": "Uživatelé"
+	},
   "USERDATA": {
 		"FIRSTNAME": "Jméno",
 		"SECONDNAME": "Příjmení",
