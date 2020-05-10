@@ -1,0 +1,5 @@
+{
+  "INTRODUCTION": {
+    "TEXT": "Dobry den, jmenuji se Maksym Maksymyshyn.\nTato aplikace byla vyvijena pro spolecnost BSC jako testovy ukol, ktery reprezentuje moje znalosti a zkusenosti z frameworkem Angular a programovacim jazykem TypeScript.\nV aplikace jsem pouzil Bootstrap framework, Kendo, knihovny RxJs a SweetAlert2.\nPro nastartovani aplikace je nutne pustit v prikazovem radku dalsi prikaz:\njson-server --watch db.json\nPotom na zalozce 'Uzivatele' aplikace umozni pridani, upravu a odmazani uzivatelu."
+  }
+}

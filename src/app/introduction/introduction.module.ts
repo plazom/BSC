@@ -38,7 +38,10 @@ const introductionRoutes: Route[] = [
   declarations: [
     IntroductionContainerComponent,
   ],
+  providers: [
+  ],
   exports: [
+    RouterModule
   ],
 })
 export class IntroductionModule {}
