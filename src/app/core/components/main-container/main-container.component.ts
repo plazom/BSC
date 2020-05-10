@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SelectEvent } from '@progress/kendo-angular-layout';
 
-export type NavItem = Readonly< {
-  name: string,
-  url: string,
+export type NavItem = Readonly<{
+  name: string;
+  url: string;
 }>;
 
 @Component({
@@ -13,33 +12,25 @@ export type NavItem = Readonly< {
   styleUrls: ['./main-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainContainerComponent implements OnInit {
-
+export class MainContainerComponent {
   navItems: Array<NavItem> = [
     {
       name: 'TUBS.INTRODUCTION',
-      url: '/introduction'
+      url: '/introduction',
     },
     {
       name: 'TUBS.NOTES',
-      url: '/notes'
+      url: '/notes',
     },
     {
       name: 'TUBS.USERS',
-      url: '/users'
+      url: '/users',
     },
   ];
 
   private activeUrl = '';
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
-
-  onTabSelect(event: SelectEvent): void {
-    this.navigate(this.navItems[event.index].url);
-  }
+  constructor(private router: Router) {}
 
   navigate(url: string): void {
     if (this.activeUrl !== url) {
@@ -49,8 +40,8 @@ export class MainContainerComponent implements OnInit {
   }
 
   isActive(navItem: NavItem): boolean {
-    console.log(this.router.url);
-    return (this.activeUrl.length > 0) ? this.activeUrl === navItem.url : this.router.url.split('?')[0] === navItem.url;
+    return this.activeUrl.length > 0
+      ? this.activeUrl === navItem.url
+      : this.router.url.split('?')[0] === navItem.url;
   }
-
 }

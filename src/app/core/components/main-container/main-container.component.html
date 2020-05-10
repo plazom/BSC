@@ -1,13 +1,15 @@
 <div fxFlex="1 1 0" fxLayout="column" fxLayoutGap="5px">
-  <bsc-lang-container></bsc-lang-container>
-
-  <div fxFlex="1 1 0" fxLayout="row" class="margin-bottom">
-    <kendo-tabstrip fxFlex (tabSelect)="onTabSelect($event)">
-      <kendo-tabstrip-tab *ngFor="let item of navItems" [title]="item.name | translate" [selected]="isActive(item)">
-        <ng-template kendoTabContent>
-          <router-outlet></router-outlet>
-        </ng-template>
-      </kendo-tabstrip-tab>
-    </kendo-tabstrip>
+  <div fxLayout="row" class="lang-cont">
+    <kendo-buttongroup [width]="'50%'" [selection]="'single'">
+      <button *ngFor="let item of navItems" kendoButton [toggleable]="true" [selected]="isActive(item)"
+        (selectedChange)="navigate(item.url)">
+        <span>
+          <!-- <span class="k-icon {{ button.icon }}"></span> -->
+          {{ item.name | translate }}
+        </span>
+      </button>
+    </kendo-buttongroup>
+    <bsc-lang-container fxFlex></bsc-lang-container>
   </div>
+  <router-outlet></router-outlet>
 </div>

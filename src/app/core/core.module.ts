@@ -5,12 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { LayoutModule } from '@progress/kendo-angular-layout';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { AuthGuard } from '../guard/auth-guard';
 import { LanguageModule } from '../language/language.module';
 import { MainContainerComponent } from './components/main-container/main-container.component';
 import { coreRoutes } from './core-routes';
-
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/root/', '.json');
@@ -19,7 +18,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   imports: [
     RouterModule.forChild(coreRoutes),
-    LayoutModule,
+    ButtonsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     HttpClientModule,

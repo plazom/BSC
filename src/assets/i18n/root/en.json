@@ -25,6 +25,7 @@
 		"ISREQUIRED": "is required",
 		"DELETEROWQ":"Delete row?",
 		"CANNOTUNDONE":"This cannot be undone",
+		"YES_REMOVE":"Yes, remove it!",
 		"CANCEL":"Cancel",
 		"INVALIDEMAIL":"Invalid email address",
 		"MINIMUMVALUE":"Minimum value is",

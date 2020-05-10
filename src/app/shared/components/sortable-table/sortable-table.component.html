@@ -1,0 +1,72 @@
+<div class="tablecontainer">
+  <img class="addButton grow" [hidden]="!canAdd" [src]="imgAdd" data-toggle="modal" data-target="#modalPopUp" (click)="onAddClick()" title="{{'TABLE.ADDROW' | translate}}">
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th [hidden]="!canEdit && !canDelete"></th>
+      <th *ngFor="let colData of colsData" (click)="onColClick(colData.rowKey)" [ngClass]="getRowClass(colData)" [style.min-width.px]="getMinWidth(colData)">
+        {{colData.translateKey | translate}}
+        <span class="arrow" [hidden]="hideArrow(colData.rowKey, true)">&nbsp;▾</span>
+        <span class="arrow" [hidden]="hideArrow(colData.rowKey, false)">&nbsp;▴</span>
+      </th>
+    </tr>
+    <tr *ngFor="let rowData of rowsData | sortTable:sortColName:sortDown" (mousedown)="onRowMouseDown(rowData)">
+      <td [hidden]="!canEdit && !canDelete" [ngClass]="getRowClass(null, rowData)">
+        <img class="grow" [hidden]="!canEdit" [src]="imgEdit" (click)="onEditClick(rowData)" data-toggle="modal" data-target="#modalPopUp" title="{{'TABLE.EDITROW' | translate}}">
+        <img (click)="onDeleteClick(rowData)" class="grow" [hidden]="!canDelete" [src]="imgDelete" title="{{'TABLE.DELETEROW' | translate}}">
+      </td>
+      <td *ngFor="let colData of colsData" [ngClass]="getRowClass(colData, rowData)"> {{transformRowDataValue(colData, rowData)}} </td>
+    </tr>
+  </table>
+
+  <!-- modal window -->
+  <div class="modal fade" id="modalPopUp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="overflow-y: scroll; max-height:85%;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ (currEditRowData?'TABLE.EDITROW':'TABLE.ADDROW') | translate}}</h5>
+          <div class="closeButtonContainer">
+            <img data-dismiss="modal" [src]="imgClose" title="{{'TABLE.CLOSE' | translate}}">
+          </div>
+
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="angForm" novalidate>
+            <div *ngFor="let colData of colsData">
+              <div class="form-group">
+                <label class="title-control">{{colData.translateKey | translate}}: <span [hidden]="!colData.requared" style="color:red">*</span></label>
+                <input class="form-control" formControlName="{{colData.rowKey}}" type="{{colData.type}}">
+              </div>
+              <div *ngIf="angForm.controls[colData.rowKey].invalid && (angForm.controls[colData.rowKey].dirty || angForm.controls[colData.rowKey].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls[colData.rowKey].errors.required">
+                  {{colData.translateKey | translate}} {{'TABLE.ISREQUIRED' | translate}}.
+                </div>
+                <div *ngIf="angForm.controls[colData.rowKey].errors.email">
+                  {{'TABLE.INVALIDEMAIL' | translate}}
+                </div>
+                <div *ngIf="angForm.controls[colData.rowKey].errors.min">
+                  {{'TABLE.MINIMUMVALUE' | translate}} {{colData.minValue}}
+                </div>
+                <div *ngIf="angForm.controls[colData.rowKey].errors.max">
+                  {{'TABLE.MAXIMUMVALUE' | translate}} {{colData.maxValue}}
+                </div>
+                <div *ngIf="angForm.controls[colData.rowKey].errors.minDateValue">
+                  {{'TABLE.MINIMUMVALUE' | translate}} {{colData.minValue.getDate()+'.'+(colData.minValue.getMonth()+1)+'.'+colData.minValue.getFullYear()}}
+                </div>
+                <div *ngIf="angForm.controls[colData.rowKey].errors.maxDateValue">
+                  {{'TABLE.MAXIMUMVALUE' | translate}} {{colData.maxValue.getDate()+'.'+(colData.maxValue.getMonth()+1)+'.'+colData.maxValue.getFullYear()}}
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button (click)="onSaveBtnClick()" data-dismiss="modal"
+                  [disabled]="angForm.invalid" class="btn btn-primary">
+            {{'TABLE.SAVE' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

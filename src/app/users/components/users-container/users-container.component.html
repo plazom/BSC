@@ -1,1 +1,8 @@
-<h1>Users</h1>
+<bsc-sortable-table
+    [colsData]="colsData"
+    [rowsData]="rowsData$ | async"
+    [canAdd]="true"
+    [canEdit]="true"
+    [canDelete]="true"
+    (onChangeData)="onChangeData($event)"
+></bsc-sortable-table>

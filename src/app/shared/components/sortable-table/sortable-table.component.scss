@@ -1,0 +1,97 @@
+.alert {
+	position: relative;
+	padding-top: 0.05rem;
+	padding-right: 0.45rem;
+	padding-bottom: 0px;
+	padding-left: 0.45rem;
+	margin-bottom: 4px;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+
+.form-group {
+	margin-bottom: 0.4rem;
+}
+.title-control
+{
+	padding: 5px;
+	width: 100%;
+	background-color: gray;
+}
+.tablecontainer
+{
+	margin-left:20px;
+	margin-right:20px;
+}
+.addButton
+{
+	margin-bottom: 7px;
+}
+.closeButtonContainer {
+  text-align: right;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.closeButtonContainer:hover {
+  transform: scale(1.1);
+}
+
+.grow
+{
+	margin-left: 3px;
+	margin-right: 3px;
+	cursor: pointer;
+}
+.grow:hover { transform: scale(1.1); }
+
+.text, .email
+{
+	text-align: left;
+}
+
+.buttons
+{
+	padding: 1px;
+	width: 60px;
+	min-width: 60px;
+	text-align: center;
+}
+.number, .tel, .date
+{
+	text-align: right;
+}
+.arrow
+{
+	float: right;
+}
+
+.selectedRow
+{
+	background-color: lightblue;
+}
+
+th{
+	background-color: gray;
+	 cursor: pointer;
+	 user-select: none;
+	 height: 20px;
+	 vertical-align: middle;
+}
+td {
+	 height: 15px;
+	 user-select: none;
+	 vertical-align: middle;
+}
+label {
+	margin-bottom: 1px;
+}
+
+/* Important part */
+.modal-dialog {
+  overflow-y: initial !important
+}
+
+.modal-body {
+  max-height: 600px;
+  overflow-y: auto;
+}

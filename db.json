@@ -12,23 +12,13 @@
     },
     {
       "firstname": "Marina",
-      "secondname": "Bieliaieva",
+      "secondname": "Beliajeva",
       "birthday": "1982-08-05",
       "email": "marisha@gmail.com",
-      "telephone": "+420776875344",
-      "height": 173,
-      "weight": 54,
+      "telephone": "77623423423",
+      "height": "174",
+      "weight": "75",
       "id": 2
-    },
-    {
-      "firstname": "jjhjh1",
-      "secondname": "sdf",
-      "birthday": "1987-11-13",
-      "email": "bdff@gmail.com",
-      "telephone": "sadf",
-      "height": "185",
-      "weight": "65",
-      "id": 3
     }
   ]
 }

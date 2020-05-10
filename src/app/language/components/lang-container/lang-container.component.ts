@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Flag } from 'src/app/shared/components/flag/flag.component';
+import { Flag } from '../../../shared/types/flag.type';
 @Component({
   selector: 'bsc-lang-container',
   templateUrl: './lang-container.component.html',
@@ -35,7 +35,7 @@ export class LangContainerComponent {
     },
   ];
 
-  constructor(public translate: TranslateService) {
+  constructor(private translate: TranslateService) {
     translate.addLangs(['en', 'cz', 'ua', 'ru']);
     this.setLang('cz');
   }

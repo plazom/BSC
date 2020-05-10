@@ -5,6 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { Route, RouterModule } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { UsersApiService } from '../api/services/users-api.service';
 import { SharedModule } from '../shared/shared.module';
 import { UsersContainerComponent } from './components/users-container/users-container.component';
 
@@ -23,6 +24,7 @@ const usersRoutes: Route[] = [
 
 @NgModule({
   imports: [
+    SharedModule,
     CommonModule,
     SharedModule,
     FlexLayoutModule,
@@ -37,6 +39,9 @@ const usersRoutes: Route[] = [
   ],
   declarations: [
     UsersContainerComponent,
+  ],
+  providers:[
+    UsersApiService
   ],
   exports: [
   ],

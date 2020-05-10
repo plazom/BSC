@@ -25,6 +25,7 @@
     "ISREQUIRED": "обов'язкове",
 		"DELETEROWQ":"Видалити рядок?",
 		"CANNOTUNDONE":"Це безповоротно",
+		"YES_REMOVE":"Так, видаляємо!",
 		"CANCEL":"Скасувати",
 		"INVALIDEMAIL":"Недійсна email адреса",
 		"MINIMUMVALUE":"Мінімальне значення",

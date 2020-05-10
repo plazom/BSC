@@ -25,6 +25,7 @@
 		"ISREQUIRED": "обязательно",
 		"DELETEROWQ":"Удалить строку?",
 		"CANNOTUNDONE":"Это безвозвратно",
+		"YES_REMOVE":"Да, удаляем!",
 		"CANCEL":"Отмена",
 		"INVALIDEMAIL":"Недействительный email адрес",
 		"MINIMUMVALUE":"Минимальное значение",

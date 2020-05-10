@@ -1,11 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-
-export type Flag = Readonly< {
-  id: string,
-  imgUp: string,
-  imgDown: string,
-  selected: boolean,
-}>;
+import { Flag } from '../../types/flag.type';
 
 @Component({
   selector: 'bsc-flag',
