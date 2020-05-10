@@ -1,12 +1,12 @@
 {
-  "HEADER": {
-    "TITLE": "BSC test task"
-	},
 	"TUBS": {
 		"INTRODUCTION": "Introducing",
 		"NOTES": "Notes",
 		"USERS": "Users"
 	},
+  "NOTES": {
+    "TITLE": "Title"
+  },
   "USERDATA": {
 		"FIRSTNAME": "First name",
 		"SECONDNAME": "Second name",

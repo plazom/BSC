@@ -5,6 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { Route, RouterModule } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NotesApiService } from '../api/services/notes-api.service';
 import { SharedModule } from '../shared/shared.module';
 import { NotesContainerComponent } from './components/notes-container/notes-container.component';
 
@@ -37,6 +38,9 @@ const notesRoutes: Route[] = [
   ],
   declarations: [
     NotesContainerComponent,
+  ],
+  providers: [
+    NotesApiService,
   ],
   exports: [
   ],

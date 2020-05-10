@@ -1,12 +1,12 @@
 {
-  "HEADER": {
-    "TITLE": "Тестовое задание для BSC"
-	},
 	"TUBS": {
 		"INTRODUCTION": "Приветствие",
 		"NOTES": "Записи",
 		"USERS": "Пользователи"
 	},
+  "NOTES": {
+    "TITLE": "Название"
+  },
   "USERDATA": {
 		"FIRSTNAME": "Имя",
 		"SECONDNAME": "Фамилия",

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ActionTableEnum } from 'src/app/shared/enums/action-table.enum';
-import { ColumnTypeEnum } from 'src/app/shared/enums/column-type.enum';
-import { ChangeTableData } from 'src/app/shared/types/change-table-data.type';
 import { User } from '../../../api/interfaces/user.interface';
 import { UsersApiService } from '../../../api/services/users-api.service';
+import { ActionTableEnum } from '../../../shared/enums/action-table.enum';
+import { ColumnTypeEnum } from '../../../shared/enums/column-type.enum';
+import { ChangeTableData } from '../../../shared/types/change-table-data.type';
 import { Column } from '../../../shared/types/column.type';
 @Component({
   selector: 'bsc-users-container',

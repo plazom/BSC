@@ -19,6 +19,16 @@
       "height": "174",
       "weight": "75",
       "id": 2
+    },
+    {
+      "firstname": "adsdf3",
+      "secondname": "asdfasdf",
+      "birthday": "2020-05-06",
+      "email": "dfdfd@gmail.com",
+      "telephone": "77545762345",
+      "height": "180",
+      "weight": "65",
+      "id": 3
     }
   ]
 }

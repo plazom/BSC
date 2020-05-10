@@ -6,7 +6,7 @@ import { DBDataType } from '../types/db-data.type';
 @Injectable()
 export class ApiService {
   baseUrl = '';
-
+  prefix = '';
   constructor(private httpClient: HttpClient) {}
 
   getData(id:string = ''):Observable<DBDataType[]>  {
@@ -19,12 +19,12 @@ export class ApiService {
 
   editRow(id:string, newValue: DBDataType): Observable<DBDataType> {
     return this.httpClient.put<DBDataType>(
-      this.baseUrl + id,
+      this.baseUrl.concat(this.prefix, id),
       newValue
     );
   }
 
   deleteRow(id: string):Observable<DBDataType[]> {
-    return this.httpClient.delete<DBDataType[]>(this.baseUrl + id);
+    return this.httpClient.delete<DBDataType[]>(this.baseUrl.concat(this.prefix, id));
   }
 }

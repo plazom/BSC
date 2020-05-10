@@ -1,35 +1,34 @@
 {
-  "HEADER": {
-    "TITLE": "Testovací úkol pro BSC"
-	},
-	"TUBS": {
-		"INTRODUCTION": "Představování",
-		"NOTES": "Notes",
-		"USERS": "Uživatelé"
-	},
+  "TUBS": {
+    "INTRODUCTION": "Představování",
+    "NOTES": "Poznámky",
+    "USERS": "Uživatelé"
+  },
+  "NOTES": {
+    "TITLE": "Název"
+  },
   "USERDATA": {
-		"FIRSTNAME": "Jméno",
-		"SECONDNAME": "Příjmení",
-		"BIRTHDAY": "Datum narození",
-		"EMAIL": "Email",
-		"TELEPHONE": "Telefon",
-		"HEIGHT": "Výška (sm)",
-		"WEIGHT": "Váha (kg)"
-	},
+    "FIRSTNAME": "Jméno",
+    "SECONDNAME": "Příjmení",
+    "BIRTHDAY": "Datum narození",
+    "EMAIL": "Email",
+    "TELEPHONE": "Telefon",
+    "HEIGHT": "Výška (sm)",
+    "WEIGHT": "Váha (kg)"
+  },
   "TABLE": {
-		"ADDROW": "Přidat řádek",
-		"EDITROW": "Opravit řádek",
-		"DELETEROW": "Vymazat řádek",
-		"CLOSE": "Zavřít",
-		"SAVE": "Uložit",
-		"ISREQUIRED": "je povinné",
-		"DELETEROWQ":"Vymazat řádek?",
-		"CANNOTUNDONE":"To nelze vrátit zpět",
-		"YES_REMOVE":"Ano, smažeme to!",
-		"CANCEL":"Zrušit",
-		"INVALIDEMAIL":"Neplatná e-mailová adresa",
-		"MINIMUMVALUE":"Minimální hodnota je",
-		"MAXIMUMVALUE":"Maximální hodnota je"
-
-	}
+    "ADDROW": "Přidat řádek",
+    "EDITROW": "Opravit řádek",
+    "DELETEROW": "Vymazat řádek",
+    "CLOSE": "Zavřít",
+    "SAVE": "Uložit",
+    "ISREQUIRED": "je povinné",
+    "DELETEROWQ": "Vymazat řádek?",
+    "CANNOTUNDONE": "To nelze vrátit zpět",
+    "YES_REMOVE": "Ano, smažeme to!",
+    "CANCEL": "Zrušit",
+    "INVALIDEMAIL": "Neplatná e-mailová adresa",
+    "MINIMUMVALUE": "Minimální hodnota je",
+    "MAXIMUMVALUE": "Maximální hodnota je"
+  }
 }

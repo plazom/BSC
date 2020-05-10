@@ -26,7 +26,6 @@ const usersRoutes: Route[] = [
   imports: [
     SharedModule,
     CommonModule,
-    SharedModule,
     FlexLayoutModule,
     RouterModule.forChild(usersRoutes),
     TranslateModule.forChild({
