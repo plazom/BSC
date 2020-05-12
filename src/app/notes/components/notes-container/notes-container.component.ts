@@ -21,16 +21,16 @@ export class NotesContainerComponent{
       requared: true,
     },
   ];
-  rowsData$ = this.notesApiService.getData();
+  rowsData$ = this.notesApiService.getData$();
   constructor(private notesApiService: NotesApiService) {}
 
   onChangeData(event: ChangeTableData) {
     if (event.action === ActionTableEnum.EDIT) {
-      this.notesApiService.editRow(event.prevValue.id.toString(), event.newValue as Note);
+      this.notesApiService.editRow$(event.prevValue.id.toString(), event.newValue as Note);
     } else if (event.action === ActionTableEnum.NEW) {
-      this.notesApiService.newRow(event.newValue as Note);
+      this.notesApiService.newRow$(event.newValue as Note);
     } else if (event.action === ActionTableEnum.DELETE) {
-      this.notesApiService.deleteRow(event.prevValue.id.toString());
+      this.notesApiService.deleteRow$(event.prevValue.id.toString());
     }
   }
 }

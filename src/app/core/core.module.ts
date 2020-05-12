@@ -10,6 +10,7 @@ import { AuthGuard } from '../guard/auth-guard';
 import { LanguageModule } from '../language/language.module';
 import { MainContainerComponent } from './components/main-container/main-container.component';
 import { coreRoutes } from './core-routes';
+import { LanguageService } from '../language/services/language.service';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/root/', '.json');
@@ -32,7 +33,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LanguageModule,
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    LanguageService
   ],
   declarations: [
     MainContainerComponent,

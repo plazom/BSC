@@ -15,29 +15,20 @@ export const coreRoutes: Routes = [
       },
       {
         path: 'introduction',
-        loadChildren: () =>
-          import('../../app/introduction/introduction.module').then(
-            (m) => m.IntroductionModule
-          ),
-        data: {
-          name: 'introduction',
-          index: 0,
-          icon: 'kxnova-business-business-graph-bar-status',
-        },
+        loadChildren: () => import('../../app/introduction/introduction.module').then((m) => m.IntroductionModule),
+        data: { name: 'introduction', index: 0},
       },
       {
         path: 'notes',
-        loadChildren: () =>
-          import('../../app/notes/notes.module').then((m) => m.NotesModule),
-        data: { name: 'NOTES', index: 1, icon: 'kxnova-user-actions-group1' },
+        loadChildren: () => import('../../app/notes/notes.module').then((m) => m.NotesModule),
+        data: { name: 'notes', index: 1 },
       },
       {
         path: 'users',
         pathMatch: 'full',
         canActivate: [AuthGuard],
-        loadChildren: () =>
-          import('../../app/users/users.module').then((m) => m.UsersModule),
-        data: { name: 'USERS', index: 2, icon: 'kxnova-user-actions-group1' },
+        loadChildren: () => import('../../app/users/users.module').then((m) => m.UsersModule),
+        data: { name: 'users', index: 2 },
       },
     ],
   },

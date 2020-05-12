@@ -8,8 +8,8 @@ import { ApiService } from './api.service';
 export class ApiFacadeService extends ApiService {
   data$: BehaviorSubject<DBDataType[]> = new BehaviorSubject([]);
 
-  getData(id:string = ''):BehaviorSubject<DBDataType[]>  {
-    super.getData().pipe(take(1)).subscribe(
+  getData$(id:string = ''):BehaviorSubject<DBDataType[]>  {
+    super.getData$().pipe(take(1)).subscribe(
       (result: Array<DBDataType>) => {
         this.data$.next(result);
       },
@@ -19,8 +19,8 @@ export class ApiFacadeService extends ApiService {
     return this.data$;
   }
 
-  newRow(newValue: DBDataType): Observable<DBDataType> {
-    let newRow$ = super.newRow(newValue);
+  newRow$(newValue: DBDataType): Observable<DBDataType> {
+    let newRow$ = super.newRow$(newValue);
     combineLatest([
       this.data$,
       newRow$,
@@ -34,8 +34,8 @@ export class ApiFacadeService extends ApiService {
     return newRow$;
   }
 
-  editRow(id:string, newValue: DBDataType): Observable<DBDataType> {
-    let editRow$ = super.editRow(id, newValue);
+  editRow$(id:string, newValue: DBDataType): Observable<DBDataType> {
+    let editRow$ = super.editRow$(id, newValue);
     combineLatest([
       this.data$,
       editRow$,
@@ -55,8 +55,8 @@ export class ApiFacadeService extends ApiService {
     return editRow$;
   }
 
-  deleteRow(id: string):Observable<DBDataType[]> {
-    let deleteRow$ = super.deleteRow(id);
+  deleteRow$(id: string):Observable<DBDataType[]> {
+    let deleteRow$ = super.deleteRow$(id);
     combineLatest([
       this.data$,
       deleteRow$,

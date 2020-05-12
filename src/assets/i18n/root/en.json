@@ -1,7 +1,4 @@
 {
-	"INTRODUCTION": {
-    "TEXT": "Hello, My name is Maksym Maksymyshyn.\nThis application was developed for BSC company as a test exercise to demonstrate my skills in the Angular framework and TypeScript programming language.\nThere are Bootstrap, Kendo, RxJs, SweetAlert2 were used in this application.\nTo start use this application run in command line next command:\njson-server --watch db.json\nAfter that 'Users' tab will be available and you can add, edit and delete users in application."
-  },
 	"TUBS": {
 		"INTRODUCTION": "Introducing",
 		"NOTES": "Notes",

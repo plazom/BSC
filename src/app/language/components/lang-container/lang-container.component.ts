@@ -1,13 +1,16 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { Flag } from '../../../shared/types/flag.type';
+import { LanguageEnum } from '../../enums/language.enum';
+import { LanguageService } from '../../services/language.service';
 @Component({
   selector: 'bsc-lang-container',
   templateUrl: './lang-container.component.html',
   styleUrls: ['./lang-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LangContainerComponent {
+export class LangContainerComponent implements OnDestroy {
   @Input() flags: Array<Flag> = [
     {
       id: 'en',
@@ -34,18 +37,30 @@ export class LangContainerComponent {
       selected: false,
     },
   ];
+  private subscription = new Subscription();
 
-  constructor(private translate: TranslateService) {
-    translate.addLangs(['en', 'cz', 'ua', 'ru']);
-    this.setLang('cz');
+  constructor(private translate: TranslateService, private languageService: LanguageService) {
+    translate.addLangs(this.languageService.getLangIds());
+    this.subscription.add(
+      this.languageService.getLanguage$().subscribe((id:LanguageEnum) => {
+        this.translate.use(id);
+      })
+    );
+
+    this.setLang(LanguageEnum.CZ);
   }
 
-  setLang(id: string) {
-    this.translate.use(id);
+  setLang(id: LanguageEnum) {
+    this.languageService.setLanguage(id);
 
     this.flags = this.flags.map((flag) => ({
       ...flag,
       selected: flag.id === id,
     }));
   }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
 }

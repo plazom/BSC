@@ -17,7 +17,7 @@ const introductionRoutes: Route[] = [
   {
     path: '',
     component: IntroductionContainerComponent,
-    data: { },
+    data: {},
   },
 ];
 
@@ -28,11 +28,8 @@ const introductionRoutes: Route[] = [
     FlexLayoutModule,
     RouterModule.forChild(introductionRoutes),
     TranslateModule.forChild({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+      loader: {provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient]},
+      isolate: true,
     }),
   ],
   declarations: [
@@ -41,7 +38,8 @@ const introductionRoutes: Route[] = [
   providers: [
   ],
   exports: [
-    RouterModule
+    TranslateModule
   ],
 })
-export class IntroductionModule {}
+export class IntroductionModule {
+}

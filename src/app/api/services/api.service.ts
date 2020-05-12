@@ -9,22 +9,22 @@ export class ApiService {
   prefix = '';
   constructor(private httpClient: HttpClient) {}
 
-  getData(id:string = ''):Observable<DBDataType[]>  {
+  getData$(id:string = ''):Observable<DBDataType[]>  {
     return this.httpClient.get<DBDataType[]>(this.baseUrl + id);
   }
 
-  newRow(newValue: DBDataType): Observable<DBDataType> {
+  newRow$(newValue: DBDataType): Observable<DBDataType> {
     return this.httpClient.post<DBDataType>(this.baseUrl, newValue);
   }
 
-  editRow(id:string, newValue: DBDataType): Observable<DBDataType> {
+  editRow$(id:string, newValue: DBDataType): Observable<DBDataType> {
     return this.httpClient.put<DBDataType>(
       this.baseUrl.concat(this.prefix, id),
       newValue
     );
   }
 
-  deleteRow(id: string):Observable<DBDataType[]> {
+  deleteRow$(id: string):Observable<DBDataType[]> {
     return this.httpClient.delete<DBDataType[]>(this.baseUrl.concat(this.prefix, id));
   }
 }

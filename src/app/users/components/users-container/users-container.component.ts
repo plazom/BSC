@@ -69,19 +69,19 @@ export class UsersContainerComponent {
       requared: true,
     },
   ];
-  rowsData$ = this.usersApiService.getData();
+  rowsData$ = this.usersApiService.getData$();
   constructor(private usersApiService: UsersApiService) {}
 
   onChangeData(event: ChangeTableData) {
     if (event.action === ActionTableEnum.EDIT) {
-      this.usersApiService.editRow(
+      this.usersApiService.editRow$(
         event.prevValue.id.toString(),
         event.newValue as User
       );
     } else if (event.action === ActionTableEnum.NEW) {
-      this.usersApiService.newRow(event.newValue as User);
+      this.usersApiService.newRow$(event.newValue as User);
     } else if (event.action === ActionTableEnum.DELETE) {
-      this.usersApiService.deleteRow(event.prevValue.id.toString());
+      this.usersApiService.deleteRow$(event.prevValue.id.toString());
     }
   }
 }

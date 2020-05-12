@@ -29,6 +29,7 @@ const usersRoutes: Route[] = [
     FlexLayoutModule,
     RouterModule.forChild(usersRoutes),
     TranslateModule.forChild({
+      isolate: false,
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
