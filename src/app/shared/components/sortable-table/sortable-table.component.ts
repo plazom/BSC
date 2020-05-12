@@ -53,6 +53,14 @@ export class SortableTableComponent implements OnInit, OnDestroy {
     this.createForm();
   }
 
+  trackByRowKeyFn(_, item:Column){
+    return item.rowKey;
+  }
+
+  trackByIdFn(_, item:BdData){
+    return item.id;
+  }
+
   onColClick(colName: string) {
     if (this.sortColName == colName) {
       this.sortDown = !this.sortDown;

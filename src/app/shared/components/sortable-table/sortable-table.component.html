@@ -3,18 +3,18 @@
   <table class="table table-bordered table-striped">
     <tr>
       <th [hidden]="!canEdit && !canDelete"></th>
-      <th *ngFor="let colData of colsData" (click)="onColClick(colData.rowKey)" [ngClass]="getRowClass(colData)" [style.min-width.px]="getMinWidth(colData)">
+      <th *ngFor="let colData of colsData; trackBy: trackByRowKeyFn" (click)="onColClick(colData.rowKey)" [ngClass]="getRowClass(colData)" [style.min-width.px]="getMinWidth(colData)">
         {{colData.translateKey | translateGl}}
         <span class="arrow" [hidden]="hideArrow(colData.rowKey, true)">&nbsp;▾</span>
         <span class="arrow" [hidden]="hideArrow(colData.rowKey, false)">&nbsp;▴</span>
       </th>
     </tr>
-    <tr *ngFor="let rowData of rowsData | sortTable:sortColName:sortDown" (mousedown)="onRowMouseDown(rowData)">
+    <tr *ngFor="let rowData of rowsData | sortTable:sortColName:sortDown; trackBy: trackByIdFn" (mousedown)="onRowMouseDown(rowData)">
       <td [hidden]="!canEdit && !canDelete" [ngClass]="getRowClass(null, rowData)">
         <img class="grow" [hidden]="!canEdit" [src]="imgEdit" (click)="onEditClick(rowData)" data-toggle="modal" data-target="#modalPopUp" title="{{'TABLE.EDITROW' | translateGl}}">
         <img (click)="onDeleteClick(rowData)" class="grow" [hidden]="!canDelete" [src]="imgDelete" title="{{'TABLE.DELETEROW' | translateGl}}">
       </td>
-      <td *ngFor="let colData of colsData" [ngClass]="getRowClass(colData, rowData)"> {{transformRowDataValue(colData, rowData)}} </td>
+      <td *ngFor="let colData of colsData; trackBy: trackByRowKeyFn" [ngClass]="getRowClass(colData, rowData)"> {{transformRowDataValue(colData, rowData)}} </td>
     </tr>
   </table>
 
@@ -31,7 +31,7 @@
         </div>
         <div class="modal-body">
           <form [formGroup]="angForm" novalidate>
-            <div *ngFor="let colData of colsData">
+            <div *ngFor="let colData of colsData; trackBy: trackByRowKeyFn">
               <div class="form-group">
                 <label class="title-control">{{colData.translateKey | translateGl}}: <span [hidden]="!colData.requared" style="color:red">*</span></label>
                 <input class="form-control" formControlName="{{colData.rowKey}}" type="{{colData.type}}">

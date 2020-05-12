@@ -50,6 +50,10 @@ export class LangContainerComponent implements OnDestroy {
     this.setLang(LanguageEnum.CZ);
   }
 
+  trackByIdFn(_, item:Flag){
+    return item.id;
+  }
+
   setLang(id: LanguageEnum) {
     this.languageService.setLanguage(id);
 

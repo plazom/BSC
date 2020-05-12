@@ -1,10 +1,9 @@
 <div fxFlex="1 1 0" fxLayout="column" fxLayoutGap="5px">
   <div fxLayout="row" class="lang-cont">
     <kendo-buttongroup [width]="'50%'" [selection]="'single'">
-      <button *ngFor="let item of navItems" kendoButton [toggleable]="true" [selected]="isActive(item)"
+      <button *ngFor="let item of navItems; trackBy: trackByNameFn" kendoButton [toggleable]="true" [selected]="isActive(item)"
         (selectedChange)="navigate(item.url)">
         <span>
-          <!-- <span class="k-icon {{ button.icon }}"></span> -->
           {{ item.name | translate }}
         </span>
       </button>

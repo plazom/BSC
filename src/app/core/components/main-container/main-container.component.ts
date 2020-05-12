@@ -32,6 +32,10 @@ export class MainContainerComponent {
 
   constructor(private router: Router) {}
 
+  trackByNameFn(_, item:NavItem){
+    return item.name;
+  }
+
   navigate(url: string): void {
     if (this.activeUrl !== url) {
       this.activeUrl = url;
