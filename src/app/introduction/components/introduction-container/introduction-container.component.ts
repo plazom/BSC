@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { LanguageEnum } from 'src/app/language/enums/language.enum';
@@ -9,7 +9,7 @@ import { LanguageService } from 'src/app/language/services/language.service';
   styleUrls: ['./introduction-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IntroductionContainerComponent {
+export class IntroductionContainerComponent implements OnDestroy {
   private subscription = new Subscription();
 
   constructor(private translate: TranslateService, private languageService: LanguageService) {

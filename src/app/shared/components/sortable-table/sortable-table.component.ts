@@ -1,8 +1,11 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import swal from 'sweetalert2';
 import { isNullOrUndefined } from 'util';
+import { LanguageService } from '../../../language/services/language.service';
+import { TranslateGlService } from '../../../language/services/translate-gl.service';
 import { ActionTableEnum } from '../../enums/action-table.enum';
 import { ColumnTypeEnum } from '../../enums/column-type.enum';
 import { BdData } from '../../interfaces/bd-data.interface';
@@ -16,7 +19,7 @@ import { MaxDateValueValidator, MinDateValueValidator } from '../../validators/d
   styleUrls: ['./sortable-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SortableTableComponent implements OnInit {
+export class SortableTableComponent implements OnInit, OnDestroy {
   @Input() colsData: Array<Column> = [];
   @Input() rowsData: Array<BdData> = [];
 
@@ -34,8 +37,18 @@ export class SortableTableComponent implements OnInit {
   sortDown = true;
   selectedRow;
   currEditRowData = null;
+  private subscription = new Subscription();
 
-  constructor(private fb: FormBuilder, private translateService: TranslateService) {}
+  constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef,
+    private translateService: TranslateGlService, private languageService: LanguageService) {
+    this.subscription.add(
+       this.languageService.getLanguage$().pipe(debounceTime(0)).subscribe(() => {
+        this.cdr.markForCheck();
+       })
+     );
+
+  }
+
   ngOnInit() {
     this.createForm();
   }
@@ -64,13 +77,13 @@ export class SortableTableComponent implements OnInit {
     return (
       (colData && colData.type ? colData.type : 'buttons') +
       (rowData &&
-      this.selectedRow &&
+        this.selectedRow &&
       (this.selectedRow == rowData ||
         (rowData.id && rowData.id == this.selectedRow.id))
         ? ' selectedRow'
         : '')
-    );
-  }
+        );
+      }
 
   onRowMouseDown(rowData: BdData) {
     this.selectedRow = rowData;
@@ -88,14 +101,14 @@ export class SortableTableComponent implements OnInit {
 
   onDeleteClick(rowData: BdData) {
     swal.fire({
-      title: this.translateService.instant('TABLE.DELETEROWQ'),
-      text: this.translateService.instant('TABLE.CANNOTUNDONE'),
+      title: this.translateService.getInstance().instant('TABLE.DELETEROWQ'),
+      text: this.translateService.getInstance().instant('TABLE.CANNOTUNDONE'),
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: this.translateService.instant('TABLE.YES_REMOVE'),
-      cancelButtonText: this.translateService.instant('TABLE.CANCEL'),
+      confirmButtonText: this.translateService.getInstance().instant('TABLE.YES_REMOVE'),
+      cancelButtonText: this.translateService.getInstance().instant('TABLE.CANCEL'),
     }).then((result) => {
       if (result.value) {
         let obj: ChangeTableData = {
@@ -123,13 +136,7 @@ export class SortableTableComponent implements OnInit {
   transformRowDataValue(colData: Column, rowData: BdData) {
     if (colData.type == ColumnTypeEnum.DATE && rowData[colData.rowKey]) {
       let date = new Date(rowData[colData.rowKey]);
-      return (
-        this.addZero(date.getDate()) +
-        '.' +
-        this.addZero(date.getMonth() + 1) +
-        '.' +
-        date.getFullYear()
-      );
+      return `${this.addZero(date.getDate())}.${this.addZero(date.getMonth() + 1)}.${date.getFullYear()}`;
     }
     return rowData[colData.rowKey];
   }
@@ -145,21 +152,21 @@ export class SortableTableComponent implements OnInit {
     if (
       colData.type == ColumnTypeEnum.NUMBER &&
       !isNullOrUndefined(colData.minValue)
-    ) {
-      arr.push(Validators.min(colData.minValue as number));
+      ) {
+        arr.push(Validators.min(colData.minValue as number));
     }
     if (
       colData.type == ColumnTypeEnum.NUMBER &&
       !isNullOrUndefined(colData.maxValue)
-    ) {
+      ) {
       arr.push(Validators.max(colData.maxValue as number));
     }
     if (
       colData.type == ColumnTypeEnum.DATE &&
       !isNullOrUndefined(colData.minValue)
-    ) {
-      arr.push(MinDateValueValidator(colData.minValue as Date));
-    }
+      ) {
+        arr.push(MinDateValueValidator(colData.minValue as Date));
+      }
     if (
       colData.type == ColumnTypeEnum.DATE &&
       !isNullOrUndefined(colData.maxValue)
@@ -190,5 +197,9 @@ export class SortableTableComponent implements OnInit {
 
     this.onChangeData.emit(obj);
     this.currEditRowData = null;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

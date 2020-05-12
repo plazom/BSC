@@ -6,6 +6,9 @@ import { BrowserModule, By } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { UsersApiService } from '../../../api/services/users-api.service';
+import { TranslateGlPipe } from '../../../language/pipes/translate-gl.pipe';
+import { LanguageService } from '../../../language/services/language.service';
+import { TranslateGlService } from '../../../language/services/translate-gl.service';
 import { ColumnTypeEnum } from '../../enums/column-type.enum';
 import { Column } from '../../types/column.type';
 //import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
@@ -80,7 +83,7 @@ describe('SortableTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SortableTableComponent, ArraySortPipe],
+      declarations: [SortableTableComponent, ArraySortPipe, TranslateGlPipe],
       imports: [
         BrowserModule,
         HttpClientModule,
@@ -95,7 +98,7 @@ describe('SortableTableComponent', () => {
         }),
         //	SweetAlert2Module.forRoot()
       ],
-      providers: [UsersApiService],
+      providers: [UsersApiService, TranslateGlService, LanguageService],
     }).compileComponents();
     translate = TestBed.get(TranslateService);
     httpMock = TestBed.get(HttpTestingController);
