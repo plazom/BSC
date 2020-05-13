@@ -5,7 +5,7 @@ export type Column = {
   translateKey: string,
   type: ColumnTypeEnum,
   minWidth?: number,
-  requared?: boolean,
+  required?: boolean,
   minValue?: number | Date,
   maxValue?: number | Date,
 };

@@ -18,7 +18,7 @@ export class NotesContainerComponent{
       translateKey: 'NOTES.TITLE',
       type: ColumnTypeEnum.TEXT,
       minWidth: 170,
-      requared: true,
+      required: true,
     },
   ];
   rowsData$ = this.notesApiService.getData$();

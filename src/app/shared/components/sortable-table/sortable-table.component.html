@@ -33,7 +33,7 @@
           <form [formGroup]="angForm" novalidate>
             <div *ngFor="let colData of colsData; trackBy: trackByRowKeyFn">
               <div class="form-group">
-                <label class="title-control">{{colData.translateKey | translateGl}}: <span [hidden]="!colData.requared" style="color:red">*</span></label>
+                <label class="title-control">{{colData.translateKey | translateGl}}: <span [hidden]="!colData.required" style="color:red">*</span></label>
                 <input class="form-control" formControlName="{{colData.rowKey}}" type="{{colData.type}}">
               </div>
               <div *ngIf="angForm.controls[colData.rowKey].invalid && (angForm.controls[colData.rowKey].dirty || angForm.controls[colData.rowKey].touched)" class="alert alert-danger">

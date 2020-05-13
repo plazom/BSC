@@ -151,7 +151,7 @@ export class SortableTableComponent implements OnInit, OnDestroy {
 
   createValidatorsArray(colData: Column): [] {
     var arr: any = [];
-    if (colData.requared) {
+    if (colData.required) {
       arr.push(Validators.required);
     }
     if (colData.type == ColumnTypeEnum.EMAIL) {

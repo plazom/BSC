@@ -18,14 +18,14 @@ export class UsersContainerComponent {
       translateKey: 'USERDATA.FIRSTNAME',
       type: ColumnTypeEnum.TEXT,
       minWidth: 170,
-      requared: true,
+      required: true,
     },
     {
       rowKey: 'secondname',
       translateKey: 'USERDATA.SECONDNAME',
       type: ColumnTypeEnum.TEXT,
       minWidth: 170,
-      requared: true,
+      required: true,
     },
     {
       rowKey: 'birthday',
@@ -34,21 +34,21 @@ export class UsersContainerComponent {
       minWidth: 150,
       minValue: new Date('1900-01-01'),
       maxValue: new Date(),
-      requared: true,
+      required: true,
     },
     {
       rowKey: 'email',
       translateKey: 'USERDATA.EMAIL',
       type: ColumnTypeEnum.EMAIL,
       minWidth: 250,
-      requared: true,
+      required: true,
     },
     {
       rowKey: 'telephone',
       translateKey: 'USERDATA.TELEPHONE',
       type: ColumnTypeEnum.TELEPHONE,
       minWidth: 120,
-      requared: false,
+      required: false,
     },
     {
       rowKey: 'height',
@@ -57,7 +57,7 @@ export class UsersContainerComponent {
       minWidth: 110,
       minValue: 40,
       maxValue: 260,
-      requared: true,
+      required: true,
     },
     {
       rowKey: 'weight',
@@ -66,7 +66,7 @@ export class UsersContainerComponent {
       minWidth: 110,
       minValue: 1,
       maxValue: 360,
-      requared: true,
+      required: true,
     },
   ];
   rowsData$ = this.usersApiService.getData$();
