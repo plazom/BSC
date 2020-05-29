@@ -1,4 +1,4 @@
-import { Note } from '../interfaces/note.interface';
-import { User } from '../interfaces/user.interface';
+import { INote } from '../interfaces/note.interface';
+import { IUser } from '../interfaces/user.interface';
 
-export type DBDataType = User | Note;
+export type DBDataType = IUser | INote;

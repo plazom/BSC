@@ -8,7 +8,7 @@ import { LanguageService } from '../../../language/services/language.service';
 import { TranslateGlService } from '../../../language/services/translate-gl.service';
 import { ActionTableEnum } from '../../enums/action-table.enum';
 import { ColumnTypeEnum } from '../../enums/column-type.enum';
-import { BdData } from '../../interfaces/bd-data.interface';
+import { IBdData } from '../../interfaces/bd-data.interface';
 import { ChangeTableData } from '../../types/change-table-data.type';
 import { Column } from '../../types/column.type';
 import { MaxDateValueValidator, MinDateValueValidator } from '../../validators/date-validator';
@@ -21,7 +21,7 @@ import { MaxDateValueValidator, MinDateValueValidator } from '../../validators/d
 })
 export class SortableTableComponent implements OnInit, OnDestroy {
   @Input() colsData: Array<Column> = [];
-  @Input() rowsData: Array<BdData> = [];
+  @Input() rowsData: Array<IBdData> = [];
 
   @Input() canAdd = false;
   @Input() canEdit = false;
@@ -57,7 +57,7 @@ export class SortableTableComponent implements OnInit, OnDestroy {
     return item.rowKey;
   }
 
-  trackByIdFn(_, item:BdData){
+  trackByIdFn(_, item:IBdData){
     return item.id;
   }
 
@@ -81,7 +81,7 @@ export class SortableTableComponent implements OnInit, OnDestroy {
     return 0;
   }
 
-  getRowClass(colData: Column, rowData: BdData = null) {
+  getRowClass(colData: Column, rowData: IBdData = null) {
     return (
       (colData && colData.type ? colData.type : 'buttons') +
       (rowData &&
@@ -93,7 +93,7 @@ export class SortableTableComponent implements OnInit, OnDestroy {
         );
       }
 
-  onRowMouseDown(rowData: BdData) {
+  onRowMouseDown(rowData: IBdData) {
     this.selectedRow = rowData;
   }
 
@@ -102,12 +102,12 @@ export class SortableTableComponent implements OnInit, OnDestroy {
     this.createForm();
   }
 
-  onEditClick(rowData: BdData) {
+  onEditClick(rowData: IBdData) {
     this.currEditRowData = rowData;
     this.createForm(rowData);
   }
 
-  onDeleteClick(rowData: BdData) {
+  onDeleteClick(rowData: IBdData) {
     swal.fire({
       title: this.translateService.getInstance().instant('TABLE.DELETEROWQ'),
       text: this.translateService.getInstance().instant('TABLE.CANNOTUNDONE'),
@@ -141,7 +141,7 @@ export class SortableTableComponent implements OnInit, OnDestroy {
     return zeros + str;
   }
 
-  transformRowDataValue(colData: Column, rowData: BdData) {
+  transformRowDataValue(colData: Column, rowData: IBdData) {
     if (colData.type == ColumnTypeEnum.DATE && rowData[colData.rowKey]) {
       let date = new Date(rowData[colData.rowKey]);
       return `${this.addZero(date.getDate())}.${this.addZero(date.getMonth() + 1)}.${date.getFullYear()}`;
@@ -185,7 +185,7 @@ export class SortableTableComponent implements OnInit, OnDestroy {
     return arr;
   }
 
-  createForm(rowData: BdData = null) {
+  createForm(rowData: IBdData = null) {
     let obj = {};
     for (let colData of this.colsData) {
       obj[colData.rowKey] = [

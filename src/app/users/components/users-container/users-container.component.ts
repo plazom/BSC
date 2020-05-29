@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { User } from '../../../api/interfaces/user.interface';
+import { IUser } from '../../../api/interfaces/user.interface';
 import { UsersApiService } from '../../../api/services/users-api.service';
 import { ActionTableEnum } from '../../../shared/enums/action-table.enum';
 import { ColumnTypeEnum } from '../../../shared/enums/column-type.enum';
@@ -76,10 +76,10 @@ export class UsersContainerComponent {
     if (event.action === ActionTableEnum.EDIT) {
       this.usersApiService.editRow$(
         event.prevValue.id.toString(),
-        event.newValue as User
+        event.newValue as IUser
       );
     } else if (event.action === ActionTableEnum.NEW) {
-      this.usersApiService.newRow$(event.newValue as User);
+      this.usersApiService.newRow$(event.newValue as IUser);
     } else if (event.action === ActionTableEnum.DELETE) {
       this.usersApiService.deleteRow$(event.prevValue.id.toString());
     }

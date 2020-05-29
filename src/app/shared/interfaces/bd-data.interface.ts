@@ -1,3 +1,3 @@
-export interface BdData {
+export interface IBdData {
   id: number,
 };

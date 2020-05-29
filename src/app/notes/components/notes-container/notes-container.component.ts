@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Note } from '../../../api/interfaces/note.interface';
+import { INote } from '../../../api/interfaces/note.interface';
 import { NotesApiService } from '../../../api/services/notes-api.service';
 import { ActionTableEnum } from '../../../shared/enums/action-table.enum';
 import { ColumnTypeEnum } from '../../../shared/enums/column-type.enum';
@@ -26,9 +26,9 @@ export class NotesContainerComponent{
 
   onChangeData(event: ChangeTableData) {
     if (event.action === ActionTableEnum.EDIT) {
-      this.notesApiService.editRow$(event.prevValue.id.toString(), event.newValue as Note);
+      this.notesApiService.editRow$(event.prevValue.id.toString(), event.newValue as INote);
     } else if (event.action === ActionTableEnum.NEW) {
-      this.notesApiService.newRow$(event.newValue as Note);
+      this.notesApiService.newRow$(event.newValue as INote);
     } else if (event.action === ActionTableEnum.DELETE) {
       this.notesApiService.deleteRow$(event.prevValue.id.toString());
     }

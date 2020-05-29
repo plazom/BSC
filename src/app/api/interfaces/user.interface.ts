@@ -1,6 +1,6 @@
-import { BdData } from '../../shared/interfaces/bd-data.interface';
+import { IBdData } from '../../shared/interfaces/bd-data.interface';
 
-export interface User extends BdData {
+export interface IUser extends IBdData {
   id: number,
   firstname: string,
   secondname: string,
